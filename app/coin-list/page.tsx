@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import CoinsList from "../components/CoinsList";
 
 function CoinListPage() {
   return (
@@ -12,6 +13,7 @@ function CoinListPage() {
         <div>Crytocoin index</div>
         <div>Crytocoin performance</div>
       </div>
+      <CoinsList />
     </div>
   );
 }
