@@ -9,7 +9,31 @@ export const authOptions = {
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_SECRET,
     }),
-    CredentialsProvider({}),
+    CredentialsProvider({
+      name: "Sign In",
+      credentials: {
+        email: {
+          label: "Email",
+          type: "email",
+          placeholder: "Email@email.com",
+        },
+        password: { label: "password", type: "password" },
+      },
+      async authorize(credentials) {
+        if (!credentials || !credentials.email || !credentials.password)
+          return null;
+
+        //FETCH USER from DB
+        //   const user = await fetch(USER);
+        // const dbUser = user.email
+
+        // if (dbUser && dbUser.password === credentials.password) {
+        //   const {password, createdAt, id,...dbUserWithoutPassword } = dbUser;
+        //   return dbUserWithoutPassword as User
+        // }
+        return null;
+      },
+    }),
   ],
 };
 

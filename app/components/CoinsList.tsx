@@ -1,22 +1,41 @@
-import React from "react";
+import Image from "next/image";
 
-function CoinsList() {
-  async function fetchCoinsList() {
-    try {
-      const response = await fetch("http://127.0.0.1:8000");
-      if (response.ok) {
-        const data = await response.json();
-        console.log(data);
-      } else {
-        console.error("Błąd podczas pobierania danych");
-      }
-    } catch (error) {
-      console.error("Błąd podczas pobierania danych:", error);
-    }
-  }
-  fetchCoinsList();
+async function CoinsList() {
+  const res = await fetch(
+    "https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=20&page=1&sparkline=false&locale=en"
+  );
+  const coinList = await res.json();
+  // console.log(coinList);
 
-  return <div>CoinsList</div>;
+  return (
+    <div className="">
+      <ul className="flex flex-wrap">
+        {coinList ? (
+          coinList.map((coin: any) => (
+            <li key={coin.id} className="border border-black m-1">
+              <div>
+                <div>Name:</div>
+                <h1>{coin.name}</h1>
+              </div>
+              <div>
+                <Image src={coin.image} alt="coin img" width={40} height={40} />
+              </div>
+              <div>
+                <div>Current price:</div>
+                <h1>{coin.current_price}</h1>
+              </div>
+              <div>
+                <div>Name:</div>
+                <h1>{coin.name}</h1>
+              </div>
+            </li>
+          ))
+        ) : (
+          <p>No cryptocurrencies available</p>
+        )}
+      </ul>
+    </div>
+  );
 }
 
 export default CoinsList;

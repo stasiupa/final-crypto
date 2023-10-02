@@ -1,17 +1,23 @@
 import React from "react";
 
 import ProductBoard from "../components/ProductBoard";
+import RedeemSearch from "../components/RedeemSearch";
+import RedeemFilter from "../components/RedeemFilter";
 
 function RedeemPage() {
   return (
     <div>
-      <div className="text-center p-2">You have /this amount/ of coins!</div>
-      <div className="text-center p-2">
+      <div className="text-center p-2 font-bold">
+        You have /this amount/ of coins!
+      </div>
+      <div className="text-center p-2 font-bold">
         Redeem Your coins in the Fake Store below!
       </div>
-      <div>
+      <div className="text-center p-2 font-bold">
         Products to get:
-        <div className="flex">
+        <div className="">
+          <RedeemFilter />
+          <RedeemSearch />
           <ProductBoard />
         </div>
       </div>

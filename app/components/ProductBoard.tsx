@@ -6,10 +6,13 @@ async function ProductBoard() {
   // console.log(products);
   return (
     <div>
-      <ul className="flex flex-wrap w-full justify-evenly">
+      <ul className="flex flex-wrap w-full justify-evenly bg-black">
         {products ? (
           products.map((product: any) => (
-            <li key={product.id} className=" border border-black m-1 w-72">
+            <li
+              key={product.id}
+              className=" border border-black m-1 w-72 text-white bg-green-800"
+            >
               <div className="border border-black m-1 p-1">
                 <div>Name: </div>
                 <h1>{product.title}</h1>
@@ -18,13 +21,15 @@ async function ProductBoard() {
                 <div>Category: </div>
                 <h2>{product.category}</h2>
               </div>
-              <Image
-                src={product.image}
-                alt="product image"
-                width={200}
-                height={200}
-              />
-              <div>
+              <div className="bg-white flex text-center justify-center m-2">
+                <Image
+                  src={product.image}
+                  alt="product image"
+                  width={200}
+                  height={200}
+                />
+              </div>
+              <div className="text-center">
                 <div>Description: </div>
                 <p>{product.description}</p>
               </div>
