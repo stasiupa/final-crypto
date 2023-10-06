@@ -42,3 +42,12 @@ class User(AbstractBaseUser, PermissionsMixin):
     objects = UserManager()
 
     USERNAME_FIELD = 'email'
+
+
+class Coin(models.Model):
+    """Coin in the system"""
+    coin_id = models.CharField(max_length=255)
+    name = models.CharField(max_length=255)
+    symbol = models.CharField(max_length=10)
+    price = models.DecimalField(max_digits=15, decimal_places=10)
+

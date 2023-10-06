@@ -90,7 +90,6 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '5432',
         'NAME': 'final-crypto-db',
-        'USER': 'bartoszratajewski',
     }
 }
 
