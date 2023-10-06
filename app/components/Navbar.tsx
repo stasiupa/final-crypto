@@ -9,7 +9,7 @@ import { FaCoins } from "react-icons/fa6";
 function Navbar() {
   return (
     <nav>
-      <ul className="flex p-5 justify-around text-green-600 bg-black font-bold text-2xl ">
+      <ul className="flex p-5 justify-around text-green-600  font-bold text-2xl relative bg-black ">
         <li>
           <Link href="/" className="flex items-center hover:underline">
             <AiTwotoneHome className="mr-1" />

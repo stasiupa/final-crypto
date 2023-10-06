@@ -89,7 +89,13 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'HOST': 'localhost',
         'PORT': '5432',
+<<<<<<< HEAD
         'NAME': 'final-crypto-db',
+=======
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'testpass123',
+>>>>>>> bbdf8a4cc0497433b55c9a3ddcf2b08a75e6c519
     }
 }
 
