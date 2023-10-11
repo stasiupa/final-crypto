@@ -47,6 +47,13 @@ export default function Form() {
         placeholder="Enter password"
         onChange={handleInputChange}
       />
+      <input
+        name="name"
+        className="m-2 p-2 border border-black"
+        type="name"
+        placeholder="Enter name"
+        onChange={handleInputChange}
+      />
       <button className="bg-green-500 m-2 p-2" type="submit">
         Register
       </button>
