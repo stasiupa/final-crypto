@@ -1,13 +1,14 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { SessionProvider } from "@/app/components/SessionProvider";
 import { getServerSession } from "next-auth";
+import Link from "next/link";
 
-import { authOptions } from "@/app/api/auth/[...nextauth]";
+// import { authOptions } from "@/app/api/auth/[...nextauth]";
 
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
+import Logout from "./logout";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,10 +22,14 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const session = await getServerSession(authOptions);
+  const session = await getServerSession();
   return (
     <html lang="en">
       <body className={inter.className}>
+        <div>
+          {!!session && <Logout />}
+          {!session && <Link href="/login">Login</Link>}
+        </div>
         <Navbar />
         {children}
         <Footer />

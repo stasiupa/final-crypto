@@ -1,9 +1,7 @@
 import Image from "next/image";
 
 async function CoinsList() {
-  const res = await fetch(
-    "https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=20&page=1&sparkline=false&locale=en"
-  );
+  const res = await fetch("http://127.0.0.1:8000/api/coin/coin-list/");
   const coinList = await res.json();
   // console.log(coinList);
 
@@ -17,7 +15,7 @@ async function CoinsList() {
                 <div>Name:</div>
                 <h1>{coin.name}</h1>
               </div>
-              <div>
+              {/* <div>
                 <Image src={coin.image} alt="coin img" width={40} height={40} />
               </div>
               <div>
@@ -27,7 +25,7 @@ async function CoinsList() {
               <div>
                 <div>Name:</div>
                 <h1>{coin.name}</h1>
-              </div>
+              </div> */}
             </li>
           ))
         ) : (
